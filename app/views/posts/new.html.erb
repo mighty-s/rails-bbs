@@ -1,0 +1,12 @@
++--------------------+<br>
+| 글을 작성해 주세요 |<br>  
++--------------------+<br>
+<%=form_for(Post.new, url: posts_path, method: "post") do |f|%>
+    <%=f.label :title, '제목' %>
+    <%=f.text_field :title, required: true%> <br>
+    
+    <%=f.label :contents, '내용'%>
+    <%=f.text_area :contents, required: true %> <br>
+    
+    <%=f.submit '제출'%>
+<%end%>

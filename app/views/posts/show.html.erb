@@ -1,0 +1,36 @@
+<p> 글쓴이 : <%=User.find(@post.user_id).name%></p>
+<p> 수정일 : <%=@post.updated_at%></p>
+<textareaa readonly>
+    제목 : <%=@post.title%> <br>
+    내용 : <%=@post.contents%>
+</textareaa>
+
+<br>------------------------------------------------------------------------<br>
+<%if session[:user_id] == @post.user_id %>
+    <%=link_to post_path, method: 'delete' do%>
+        <button>삭제</button>
+    <%end%>
+
+    <%=link_to edit_post_path do%>
+        <button>수정</button>
+    <%end%>
+<%end%>
+<br>------------------------------------------------------------------------- <br>
+<p>댓글 작성하기</p>
+<%=form_for(Comment.new, url: comments_path, method: 'post') do |f|%>
+    <%=f.text_area :content, required: true %> <br>
+    <%=f.hidden_field :post_id%>
+    <%=hidden_field_tag 'post_id', @post.id%>
+    
+    <%=f.submit '댓글쓰기'%>
+<%end%>
+====================================댓글======================================<br>
+
+<%@comments.each do |comment|%>
+    <p>작성자 : <%=User.find(comment.user_id).name%></p>
+    <p>글내용 : <%=comment.content%></p>
+    <%=link_to comment_path(comment.id), method: 'delete' do%>
+        <button>삭제하기</button><br>
+    <%end%>
+==============================================================================<br>
+<%end%>

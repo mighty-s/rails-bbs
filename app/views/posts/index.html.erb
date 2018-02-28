@@ -1,0 +1,23 @@
+<h1>CRUD 뽀개기</h1>
+
+<%=link_to "게시글 쓰기", new_post_path %> 
+<br><br>
+
+<table style="margin:0 auto;">
+    <thead>
+        <th>글번호</th>
+        <th>글제목</th>
+        <th>작성자</th>
+        <th>댓글수</th>
+    </thead>
+    <tbody>
+        <%@posts.each do |post|%>
+            <tr>
+                <td><%=post.id%></td>
+                <td><%=link_to post.title , post_path(id: post.id)%></td>
+                <td><%=User.find(post.user_id).name%></td>  <!--FK로 엮인 유저의 이름-->
+                <td><%=Comment.where(post_id: post.id).count%></td> <!--댓글의 수-->
+            </tr>
+        <%end%>
+    </tbody>
+</table>
