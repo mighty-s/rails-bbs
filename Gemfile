@@ -6,8 +6,17 @@ git_source(:github) do |repo_name|
 end
 
 
+# DummyData
+gem 'faker'
+gem 'pry-rails'
+# Bootstrap
+gem 'bootstrap', '~> 4.1.1'
+# JQuery
+gem 'jquery-rails'
+# 레일즈 DB 웹 콘솔
+gem 'rails_db'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.5'
+gem 'rails', '~> 5.1.6'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
