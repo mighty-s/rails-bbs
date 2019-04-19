@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
   def create
     notice_result = nil
     post_id = params[:post_id]
+
     if !user_signed_in?
       notice_result = "로그인을 해야 글을 작성할 수 있습니다"
     else

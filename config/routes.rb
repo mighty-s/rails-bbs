@@ -45,4 +45,14 @@ Rails.application.routes.draw do
 
   # get 'posts/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  #
+  # About Restful API
+  #   * Difference between PUT and PATCH
+  #     PUT은 해당 자원이 통채로 교체되는 것을 의미하며 PATCH는 해당 자원의 일부분만 변경되는 것을 의미
+  #
+  #
+
 end
